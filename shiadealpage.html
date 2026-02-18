@@ -315,10 +315,11 @@
         /* Responsive grid - cards auto-arrange based on screen size */
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 350px);
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            justify-content: center;
         }
 
         /* Individual feature card - lifts up and gets a gold border on hover */
@@ -330,6 +331,11 @@
             transition: all 0.3s ease;
             border: 1px solid #eeeeee;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            aspect-ratio: 1 / 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .about-card:hover {
@@ -455,6 +461,9 @@
             gap: 2rem;
             flex-wrap: wrap;
             margin-top: 3rem;
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Individual card type preview - lifts up and tilts randomly on hover */
@@ -1040,8 +1049,8 @@
             <h1>Shia Deal</h1>
             <p>Be the first player to collect 3 complete property sets of different colours! A strategic card game of property trading, action cards, and clever deals.</p>
             <div class="cta-buttons">
-                <a href="#how-to-play" class="btn btn-primary">Learn to Play</a>
-                <a href="#about" class="btn btn-secondary">Discover More</a>
+                <a href="#how-to-play" class="btn btn-secondary">Learn to Play</a>
+                <a href="#preorder" class="btn btn-primary">Pre-Order Now</a>
             </div>
         </div>
     </section>
