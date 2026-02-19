@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Detectives</title>
+    <meta name="description" content="Quran Detectives - Educational Quran sessions and creators of the Shia Deal card game. Where faith and fun meet!">
+    <meta name="keywords" content="Quran Detectives, Shia Deal, Islamic card game, Quran sessions, Muslim children, Islamic education, Shia card game">
+    <meta property="og:title" content="Quran Detectives">
+    <meta property="og:description" content="Educational Quran sessions and creators of the Shia Deal card game. Where faith and fun meet!">
+    <meta property="og:image" content="qdlogo.jpg">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/jpeg" href="qdlogo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #FAF6F1;
+            color: #3B2417;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(59, 36, 23, 0.1);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-brand img {
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .nav-brand span {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #3B2417;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Nunito', sans-serif;
+            color: #5C4033;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #7B3F5E;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: #3B2417;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #F5E8D6 0%, #EFE0CE 40%, #E8D5C4 100%);
+            padding: 160px 5% 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(123, 63, 94, 0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(107, 123, 141, 0.06) 0%, transparent 50%);
+        }
+
+        .hero .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero > .content > img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero h1 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #3B2417;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .btn-image {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-image img {
+            width: 220px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-image:hover {
+            transform: translateY(-4px);
+        }
+
+        .btn-image:hover img {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Fun arrow callout */
+        .fun-callout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .fun-callout .text {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.4rem;
+            color: #E8872A;
+            transform: rotate(-3deg);
+        }
+
+        .fun-callout .arrow {
+            font-size: 1.8rem;
+            color: #E8872A;
+            line-height: 1;
+            margin-top: -15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #ffffff;
+            color: #6B5B4F;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 260px;
+                height: 100vh;
+                background: #ffffff;
+                flex-direction: column;
+                padding: 80px 30px 30px;
+                gap: 1.5rem;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .hero > .content > img {
+                width: 90px;
+                height: 90px;
+            }
+
+            .btn-image img {
+                width: 160px;
+            }
+
+            .fun-callout .text {
+                font-size: 1.1rem;
+            }
+
+            .fun-callout .arrow {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-brand">
+            <img src="qdlogo.jpg" alt="Quran Detectives Logo">
+            <span>Quran Detectives</span>
+        </div>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="shiadealpage.html">Shia Deal</a></li>
+            <li><a href="contactus.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="content">
+            <img src="qdlogo.jpg" alt="Quran Detectives Logo">
+            <h1>Quran Detectives</h1>
+            <a href="shiadealpage.html" class="btn-image">
+                <img src="SDlogo.jpeg" alt="Shia Deal">
+            </a>
+            <div class="fun-callout">
+                <span class="arrow">&#8593;</span>
+                <span class="text">Press here for something cool!</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Quran Detectives. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
